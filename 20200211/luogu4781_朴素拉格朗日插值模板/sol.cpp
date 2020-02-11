@@ -3,8 +3,9 @@
 using namespace std;
 
 typedef long long ll;
-const int maxn = 2345, mod = 998244353;
-int x[maxn], y[maxn];
+const int maxn = 2345;
+const ll mod = 998244353;
+ll x[maxn], y[maxn];
 
 ll inv(ll x) {
     ll m = mod - 2, ans = 1 % mod;
@@ -17,7 +18,7 @@ ll inv(ll x) {
     return ans;
 }
 
-ll lagrange(int n, int x0) {
+ll lagrange(int n, ll x0) {
     ll ans = 0, tmp;
     for(int i = 1; i <= n; ++i) {
         tmp = y[i] % mod;
@@ -32,10 +33,10 @@ ll lagrange(int n, int x0) {
 }
 
 int main() {
-    int n, k;
-    scanf("%d %d", &n, &k);
+    ll n, k;
+    scanf("%lld %lld", &n, &k);
     for(int i = 1; i <= n; ++i) {
-        scanf("%d %d", x + i, y + i);
+        scanf("%lld %lld", x + i, y + i);
     }
     printf("%lld\n", lagrange(n, k));
     return 0;
